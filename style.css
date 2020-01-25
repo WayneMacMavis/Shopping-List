@@ -1,0 +1,55 @@
+body {
+    background-image: url("backGround.jpg");
+    background-repeat: no-repeat;
+    background-size: cover, fixed;
+    text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+    font-style: italic;
+    color: whitesmoke;
+}
+
+p {
+    font-size: 50px;
+    font-style: italic;
+    color: whitesmoke;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+::placeholder {
+    color: whitesmoke;
+}
+
+:placeholder-shown {
+    background-position: inherit;
+    font-size: 17px;
+    color: whitesmoke;
+}
+
+input {
+    background-color: rgb(70, 70, 245);
+}
+
+#enter {
+     color: whitesmoke;
+}
+
+button {
+    background-color: rgb(31, 31, 250);
+    font-size: 17px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: blue;
+}
