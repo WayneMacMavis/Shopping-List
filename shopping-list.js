@@ -1,11 +1,11 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-var list = document.querySelectorAll("li");
+var item = document.getElementById("myLI");
 
 for(var i=0; i<list.length; i++) {
     list[i].addEventListener("click", function (e) {
-           e.currentTarget.classList.toggle("done");
+        e.currentTarget.classList.toggle("done");
     })
 }
 
@@ -34,5 +34,15 @@ function addListAfterKeypress() {
     }
 }
 
+
+function removeLi() {
+    item.parentNode.removeChild(item);
+  }
+  
+  
+
+
+
 button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
+list.addEventListener("click", removeListAfterClick);
