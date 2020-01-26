@@ -1,10 +1,9 @@
-var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 const ul = document.querySelector("ul");
 const li = document.getElementsByTagName("li");
 const deleteButton = document.getElementsByTagName("i");
 var clearButton = document.getElementById("clear");
-var button = document.getElementsByTagName("button") [2];
+var button = document.getElementsByTagName("button") [1];
 
 function strikeThrough(e) {
     if (e.target.tagName === "LI") {
@@ -82,7 +81,3 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
 createDeleteButtonIcon();
 deleteParentNodeOnClick();
-
-button.addEventListener("enter", function (e) {
-    console.log("Enter");
-})
