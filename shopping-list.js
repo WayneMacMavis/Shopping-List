@@ -1,12 +1,33 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
-var ul = document.querySelector("ul");
-var item = document.getElementById("myLI");
+const ul = document.querySelector("ul");
+const li = document.getElementsByTagName("li");
+const deleteButton = document.getElementsByTagName("i");
+var clearButton = document.getElementById("clear");
+var button = document.getElementsByTagName("button") [2];
 
-for(var i=0; i<list.length; i++) {
-    list[i].addEventListener("click", function (e) {
-        e.currentTarget.classList.toggle("done");
-    })
+function strikeThrough(e) {
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("done");
+    }
+}
+
+function createDeleteButtonIcon() {
+    for (var ind = 0; ind < li.length; ind++) {
+        var createDeleteButton = document.createElement("i");
+        var createDiv = document.getElementsByClassName("div");
+        console.log(createDiv);
+        createDeleteButton.classList.add("fa", "fa-trash");
+        createDiv[ind].appendChild(createDeleteButton);
+    }
+}
+
+function deleteNodeOnClick(e) {
+    var trash = document.querySelectorAll("i");
+    for (var ind = 0; ind < trash.length; ind++) {
+        console.log(e);
+        this.parentNode.parentNode.remove();
+    }
 }
 
 function inputLength() {
@@ -14,35 +35,54 @@ function inputLength() {
 }
 
 function createListElement() {
+    var divClassWrapper = document.createElement("div");
+    divClassWrapper.classList.add("li-wrapper");
+
     var li = document.createElement("li");
+    var createDiv = document.createElement("div");
+
     li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li).addEventListener("click", function (e) {
-        e.currentTarget.classList.toggle("done");
+    divClassWrapper.appendChild(li);
+    divClassWrapper.appendChild(createDiv);
+    ul.appendChild(divClassWrapper);
+
     input.value = "";
-    })
+    createDiv.classList.add("div");
+    var createDeleteButton = document.createElement("i");
+    createDeleteButton.classList.add("fa", "fa-trash");
+    createDiv.appendChild(createDeleteButton);
+    deleteParentNodeOnClick();
 }
 
 function addListAfterClick() {
-    if(inputLength() > 0) {
-     createListElement();
+    if (inputLength() > 0) {
+        createListElement();
     }
 }
 
-function addListAfterKeypress() {
+function addListAfterKeypress(event) {
     if (inputLength() > 0 && event.keyCode === 13) {
-       createListElement();
+        createListElement();
     }
 }
 
+function deleteParentNodeOnClick() {
+    for (var i = 0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener("click", deleteNodeOnClick);
+    }
+}
 
-function removeLi() {
-    item.parentNode.removeChild(item);
-  }
-  
-  
+function clearList() {
+    ul.innerHTML = "";
+}
 
-
-
+clearButton.addEventListener("click", clearList);
+ul.addEventListener("click", strikeThrough);
 button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
-list.addEventListener("click", removeListAfterClick);
+createDeleteButtonIcon();
+deleteParentNodeOnClick();
+
+button.addEventListener("enter", function (e) {
+    console.log("Enter");
+})

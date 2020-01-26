@@ -1,55 +1,96 @@
 body {
-    background-image: url("backGround.jpg");
-    background-repeat: no-repeat;
-    background-size: cover, fixed;
-    text-align: center;
-}
-
-h1 {
-    font-size: 100px;
-    font-style: italic;
-    color: whitesmoke;
-}
-
-p {
-    font-size: 50px;
-    font-style: italic;
-    color: whitesmoke;
+	margin: 0;
+	padding: 0;
+    background-color: #edf0f3;
+    background-size: cover;
+    background-position: center;
+	background-image: url(https://images.unsplash.com/photo-1579783616444-4604fd2fb8f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
 }
 
 ul {
-    list-style-type: none;
+	list-style-type: none;
+	padding-left: 0;
+
 }
 
-li {
-    font-size: 30px;
-    color: whitesmoke;
+header {
+	font-family: 'Pacifico', cursive;
+	font-size: 2em;
 }
 
-::placeholder {
-    color: whitesmoke;
+.wrapper {
+	max-width: 980px;
+	margin: 0 auto;
+	text-align: center;
 }
 
-:placeholder-shown {
-    background-position: inherit;
-    font-size: 17px;
-    color: whitesmoke;
+section {
+	max-width: 50%;
+	text-align: left;
+	margin: 0 auto;
+	padding-left: 25%;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 600;
 }
 
 input {
-    background-color: rgb(70, 70, 245);
-}
-
-#enter {
-     color: whitesmoke;
+	padding: 10px 20px 10px 20px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: -webkit-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
+				-moz-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
+				box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
 }
 
 button {
-    background-color: rgb(31, 31, 250);
-    font-size: 17px;
+	padding: 10px 20px 10px 20px;
+	margin: 5px;
+	border: none;
+	background-color:rgba(252, 153, 20, 0.8);
+	border-radius: 5px;
+	box-shadow: -webkit-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
+				-moz-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
+				box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.71);
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.background--lightgreen {
+	max-width: 50%;
+	background-color: #DBF4E3;
+	border-radius: 5px;
+	-webkit-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	-moz-box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	box-shadow: 4px 6px 23px -2px rgba(17,128,109,0.91);
+	opacity: .7;
+}
+
+ul li {
+	opacity: 1;
+	cursor: pointer;
+
 }
 
 .done {
-    text-decoration: line-through;
-    color: blue;
+	text-decoration: line-through;
+}
+
+
+li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.div {
+	display: flex;
+}
+
+.li-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 5px;
 }
