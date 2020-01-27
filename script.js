@@ -1,133 +1,83 @@
-var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
-var ul = document.querySelector("ul");
-var li = document.getElementsByTagName("li");
-var list = document.querySelectorAll("ul > li");
-var listLength = list.length
+const ul = document.querySelector("ul");
+const li = document.getElementsByTagName("li");
+const deleteButton = document.getElementsByTagName("i");
+var clearButton = document.getElementById("clear");
+var button = document.getElementsByTagName("button") [1];
 
+function strikeThrough(e) {
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("done");
+    }
+}
 
-// function crossOut() {
+function createDeleteButtonIcon() {
+    for (var ind = 0; ind < li.length; ind++) {
+        var createDeleteButton = document.createElement("i");
+        var createDiv = document.getElementsByClassName("div");
+        console.log(createDiv);
+        createDeleteButton.classList.add("fa", "fa-trash");
+        createDiv[ind].appendChild(createDeleteButton);
+    }
+}
 
-	for (var i = 0; i < listLength; i++) {
-		list[i].addEventListener("click", function()  {
-		this.classList.toggle("done");
-		})
-	}
-
-
+function deleteNodeOnClick(e) {
+    var trash = document.querySelectorAll("i");
+    for (var ind = 0; ind < trash.length; ind++) {
+        console.log(e);
+        this.parentNode.parentNode.remove();
+    }
+}
 
 function inputLength() {
-	return input.value.length;
+    return input.value.length;
 }
 
 function createListElement() {
-	
-	var li = document.createElement("li");
-		li.appendChild(document.createTextNode(input.value));
-	
-	var deleteButton = document.createElement("button");
-		deleteButton.appendChild(document.createTextNode("delete"));
-		li.appendChild(deleteButton);
-		ul.appendChild(li);
+    var divClassWrapper = document.createElement("div");
+    divClassWrapper.classList.add("li-wrapper");
 
-		// crossOut ();
+    var li = document.createElement("li");
+    var createDiv = document.createElement("div");
 
-	var list = document.querySelectorAll("ul > li");
-		var listLength = list.length
-		for (var i = 0; i < listLength; i++) {
-		list[i].addEventListener("click", function () {
-		this.classList.toggle("done");
-			});
-		
-		}
+    li.appendChild(document.createTextNode(input.value));
+    divClassWrapper.appendChild(li);
+    divClassWrapper.appendChild(createDiv);
+    ul.appendChild(divClassWrapper);
 
-	input.value = "";
+    input.value = "";
+    createDiv.classList.add("div");
+    var createDeleteButton = document.createElement("i");
+    createDeleteButton.classList.add("fa", "fa-trash");
+    createDiv.appendChild(createDeleteButton);
+    deleteParentNodeOnClick();
 }
 
-// function crossOut() {
-
-// 		var list = document.querySelectorAll("ul > li");
-// 		var listLength = list.length
-// 		for (i = 0; i < listLength; i++) {
-// 		list[i].addEventListener("click", function()  {
-// 		this.classList.toggle("done");
-// 		})
-// 	}
-// }
-
 function addListAfterClick() {
-	if (inputLength() > 0) {
-		createListElement();
-		// crossOut();
-		// var list = document.querySelectorAll("ul > li");
-		// var listLength = list.length
-		// for (var i = 0; i < listLength; i++) {
-		// list[i].addEventListener("click", function() {
-		// this.classList.toggle("done");
-		// 	});
-		
-		// }
-	}
+    if (inputLength() > 0) {
+        createListElement();
+    }
 }
 
 function addListAfterKeypress(event) {
-	if (inputLength() > 0 && event.keyCode === 13) {
-		createListElement();
-		
-		// // crossOut();
-		// var list = document.querySelectorAll("ul > li");
-		// var listLength = list.length
-		// for (var i = 0; i < listLength; i++) {
-		// list[i].addEventListener("click", function() {
-		// this.classList.toggle("done");
-			
-		// 	});
-		// }
-	}
-
+    if (inputLength() > 0 && event.keyCode === 13) {
+        createListElement();
+    }
 }
-	
 
-// add delete button
-	
-	for (var i = 0; i < list.length; i++) {
-	var deleteButton = document.createElement("button");
-	deleteButton.appendChild(document.createTextNode("delete"));
-	list[i].appendChild(deleteButton);
-	deleteButton.classList.add("delete");  
+function deleteParentNodeOnClick() {
+    for (var i = 0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener("click", deleteNodeOnClick);
+    }
+}
 
-	}
+function clearList() {
+    ul.innerHTML = "";
+}
 
-
-
-//callback functions
-
+clearButton.addEventListener("click", clearList);
+ul.addEventListener("click", strikeThrough);
 button.addEventListener("click", addListAfterClick);
-
 input.addEventListener("keypress", addListAfterKeypress);
-
-// for (i = 0; i < listLength; i++) {
-// list[i].addEventListener("click", crossOut);
-
-// }
-
-	
-
-
-
-// remove li on click
-
-// var delButton = document.getElementsByClassName("delete");
-// var delButtonLength = delButton.length
-// for (i = 0; i < delButtonLength; i++) {
-// 	delButton[i].addEventListener("click", function (e) {
-// 	e.target.
-
-
-
-
-
-
-
-
-
+createDeleteButtonIcon();
+deleteParentNodeOnClick();

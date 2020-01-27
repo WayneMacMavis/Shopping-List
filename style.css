@@ -1,17 +1,53 @@
-body {
-	margin: 0;
-	padding: 0;
-    background-color: #edf0f3;
-    background-size: cover;
-    background-position: center;
-	background-image: url(https://images.unsplash.com/photo-1579783616444-4604fd2fb8f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
-}
+/* Animated Background */
+html {
+	height:100%;
+  }
+  
+  body {
+	margin:0;
+  }
+  
+  .bg {
+	animation:slide 3s ease-in-out infinite alternate;
+	background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+	bottom:0;
+	left:-50%;
+	opacity:.5;
+	position:fixed;
+	right:-50%;
+	top:0;
+	z-index:-1;
+  }
+  
+  .bg2 {
+	animation-direction:alternate-reverse;
+	animation-duration:4s;
+  }
+  
+  .bg3 {
+	animation-duration:5s;
+  }
+  
 
-ul {
-	list-style-type: none;
-	padding-left: 0;
+  @keyframes slide {
+	0% {
+	  transform:translateX(-25%);
+	}
+	100% {
+	  transform:translateX(25%);
+	}
+  }
 
-}
+  #first {
+	
+	animation: example 5s infinite;
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+	from {color: rgb(11, 71, 236);}
+	to {color: rgb(239, 239, 247);}
+  }
 
 header {
 	font-family: 'Bangers', cursive;
@@ -34,7 +70,7 @@ section {
 	font-family: 'Bangers', cursive;
     font-family: 'Zhi Mang Xing', cursive;
     font-weight: 600px;
-    font-size: 25px;
+    font-size: 26px;
 }
 
 input {
@@ -74,16 +110,17 @@ button:hover {
 	opacity: .7;
 }
 
+ul {
+	list-style-type: none;
+	padding-left: 0;
+
+}
+
 ul li {
 	opacity: 1;
 	cursor: pointer;
 
 }
-
-.done {
-	text-decoration: line-through;
-}
-
 
 li {
 	display: flex;
@@ -91,13 +128,17 @@ li {
 	align-items: center;
 }
 
-.div {
-	display: flex;
-}
-
 .li-wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 5px;
+}
+
+.div {
+	display: flex;
+}
+
+.done {
+	text-decoration: line-through;
 }
